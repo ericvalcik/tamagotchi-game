@@ -1,0 +1,85 @@
+{
+  "frames": {
+    "idle1": {
+      "frame": { "x": 0, "y": 0, "w": 32, "h": 32 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 32 },
+      "sourceSize": { "w": 32, "h": 32 },
+      "duration": 500
+    },
+    "idle2": {
+      "frame": { "x": 32, "y": 0, "w": 32, "h": 32 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 32 },
+      "sourceSize": { "w": 32, "h": 32 },
+      "duration": 100
+    },
+    "idle3": {
+      "frame": { "x": 64, "y": 0, "w": 32, "h": 32 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 32 },
+      "sourceSize": { "w": 32, "h": 32 },
+      "duration": 500
+    },
+    "idle4": {
+      "frame": { "x": 96, "y": 0, "w": 32, "h": 32 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 32 },
+      "sourceSize": { "w": 32, "h": 32 },
+      "duration": 100
+    },
+    "run1": {
+      "frame": { "x": 128, "y": 0, "w": 32, "h": 32 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 32 },
+      "sourceSize": { "w": 32, "h": 32 }
+    },
+    "run2": {
+      "frame": { "x": 160, "y": 0, "w": 32, "h": 32 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 32 },
+      "sourceSize": { "w": 32, "h": 32 }
+    },
+    "run3": {
+      "frame": { "x": 192, "y": 0, "w": 32, "h": 32 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 32 },
+      "sourceSize": { "w": 32, "h": 32 }
+    },
+    "run4": {
+      "frame": { "x": 224, "y": 0, "w": 32, "h": 32 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 32 },
+      "sourceSize": { "w": 32, "h": 32 }
+    }
+  },
+  "meta": {
+    "image": "ador.png",
+    "format": "RGBA8888",
+    "size": { "w": 256, "h": 32 },
+    "scale": "1"
+  },
+  "animations": {
+    "idle": [
+      "idle1",
+      "idle1",
+      "idle1",
+      "idle1",
+      "idle1",
+      "idle1",
+      "idle1",
+      "idle2",
+      "idle1",
+      "idle1",
+      "idle1",
+      "idle1",
+      "idle3",
+      "idle1",
+      "idle1",
+      "idle1",
+      "idle1",
+      "idle1",
+      "idle2",
+      "idle1",
+      "idle1",
+      "idle1",
+      "idle1",
+      "idle4",
+      "idle1",
+      "idle4"
+    ],
+    "run": ["run1", "run2", "run3", "run4"]
+  }
+}
