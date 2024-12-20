@@ -13,18 +13,45 @@ import { Application, Assets, AnimatedSprite, Sprite } from "pixi.js";
   // Load the bunny texture
   const sheet = await Assets.load("/assets/ador.json");
 
-  const adorRunning = new AnimatedSprite(sheet.animations["idle"]);
-  adorRunning.texture.baseTexture.scaleMode = "nearest";
-  adorRunning.animationSpeed = 0.07;
-  adorRunning.scale.set(8);
-  adorRunning.anchor.set(0.5);
-  adorRunning.position.set(app.screen.width / 2, app.screen.height / 2);
+  const adorIdle = new AnimatedSprite(sheet.animations["idle"]);
+  adorIdle.texture.baseTexture.scaleMode = "nearest";
+  adorIdle.animationSpeed = 0.07;
+  adorIdle.scale.set(16);
+  adorIdle.anchor.set(0.5);
+  adorIdle.position.set(app.screen.width / 2, app.screen.height / 2);
+
+  const adorRun = new AnimatedSprite(sheet.animations["run"]);
+  adorRun.texture.baseTexture.scaleMode = "nearest";
+  adorRun.animationSpeed = 0.12;
+  adorRun.scale.set(16);
+  adorRun.anchor.set(0.5);
+  adorRun.position.set(app.screen.width / 2, app.screen.height / 2);
+
+  const buttonSheet = await Assets.load("/assets/start-btn.json");
+
+  const btnUp = new Sprite(buttonSheet.textures["up"]);
+  btnUp.texture.baseTexture.scaleMode = "nearest";
+  btnUp.scale.set(8);
+  btnUp.anchor.set(0.5);
+  btnUp.position.set(app.screen.width / 2, app.screen.height * 0.8);
+  btnUp.eventMode = "static";
+  btnUp.cursor = "pointer";
+  btnUp.on("pointerdown", (event) => {
+    btnUp.texture = buttonSheet.textures["down"];
+  });
+  btnUp.on("pointerup", (event) => {
+    btnUp.texture = buttonSheet.textures["up"];
+  });
+  btnUp.on("pointerout", (event) => {
+    btnUp.texture = buttonSheet.textures["up"];
+  });
 
   // Add the bunny to the stage
-  app.stage.addChild(adorRunning);
+  app.stage.addChild(adorIdle);
+  app.stage.addChild(btnUp);
 
   // Play the animation
-  adorRunning.play();
+  adorIdle.play();
 
   // Listen for animate update
   app.ticker.add((time) => {
