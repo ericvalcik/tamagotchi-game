@@ -8,8 +8,8 @@ function App() {
     const element = document.getElementById("root-container");
     if (element) {
       console.log("Pre-scroll to the middle");
-      element.scrollTop = 300;
-      element.scrollLeft = 300;
+      // element.scrollTop = 300;
+      // element.scrollLeft = 300;
     }
   }, []);
 
@@ -18,8 +18,8 @@ function App() {
       className="overflow-scroll max-h-screen pointer-events-none"
       id="root-container"
     >
-      <main className="pt-[35%] pl-[35%]">
-        <div className="h-[2500px] w-[2500px] border-4 border-solid border-yellow-500 p-4">
+      <main className="py-[calc(50vh-70px)] px-[calc(50%-40px)] w-max">
+        <div className="h-[1000px] w-[800px] border-4 border-solid border-yellow-500 p-4">
           <h1>Vite + React</h1>
           <div>
             <button
