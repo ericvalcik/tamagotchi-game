@@ -8,7 +8,7 @@
     "dev": "vite --no-open"
   },
   "dependencies": {
-    "pixi.js": "^8.6.2"
+    "pixi.js": "^8.6.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
