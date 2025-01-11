@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Controls } from "./components/Controls";
 
 function App() {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const element = document.getElementById("root-container");
+    if (element) {
+      console.log("Pre-scroll to the middle");
+      element.scrollTop = 300;
+      element.scrollLeft = 300;
+    }
+  }, []);
 
   return (
     <div

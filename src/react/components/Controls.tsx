@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from "react";
-import { cn } from "../../lib/cn";
+import { cn } from "../lib/cn";
 
 type Direction = "up" | "left" | "down" | "right";
 
