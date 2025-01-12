@@ -21,20 +21,31 @@ export async function loadAdor() {
   adorRun.position.set(app.screen.width / 2, app.screen.height / 2);
 
   // setup keyboard listeners
-  setupKeyboard();
+  const { getRunning } = setupKeyboard();
 
   // Add the bunny to the stage
-  app.stage.addChild(adorIdle);
+  let idleStage = app.stage.addChild(adorIdle);
+  let runStage = app.stage.addChild(adorRun);
+  runStage.visible = false;
 
   // Play the animation
   adorIdle.play();
+  adorRun.play();
+  let loaded: "idle" | "run" = "idle";
 
   // Listen for animate update
-  app.ticker.add((time) => {
-    // Just for fun, let's rotate mr rabbit a little.
-    // * Delta is 1 if running at 100% performance *
-    // * Creates frame-independent transformation *
-    // ador.rotation += 0.1 * time.deltaTime;
+  app.ticker.add(() => {
+    const running = getRunning();
+    if (running && loaded === "idle") {
+      idleStage.visible = false;
+      runStage.visible = true;
+      loaded = "run";
+    }
+    if (!running && loaded === "run") {
+      idleStage.visible = true;
+      runStage.visible = false;
+      loaded = "idle";
+    }
   });
 }
 
@@ -46,7 +57,11 @@ const getMapElement = (): HTMLElement => {
   return mapElement;
 };
 
-const setupKeyboard = () => {
+type SetupKeyboardReturn = {
+  getRunning: () => boolean;
+};
+
+const setupKeyboard = (): SetupKeyboardReturn => {
   const left = keyboard("a");
   const right = keyboard("d");
   const up = keyboard("w");
@@ -71,4 +86,8 @@ const setupKeyboard = () => {
       mapEl.scrollTop -= toMove;
     }
   });
+
+  return {
+    getRunning: () => left.isDown || right.isDown || up.isDown || down.isDown,
+  };
 };
